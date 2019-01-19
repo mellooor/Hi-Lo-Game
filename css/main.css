@@ -1,0 +1,201 @@
+* {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#game-area {
+    height: 100vh;
+    width: 100vw;
+    background: #355435;
+    display: flex;
+    flex-direction: column;
+}
+
+#game-data-container, #game-control-container {
+    flex: 1;
+    position: relative;
+}
+
+#game-play-container {
+    flex: 3;
+}
+
+btn {
+    padding: 15px;
+    border-radius: 2px;
+    box-shadow: 0 0 5px;
+    cursor: pointer;
+}
+
+#new-game {
+    background: #4848e2;
+    color: #aaa;
+    z-index: 10;
+}
+
+#new-game:hover {
+    background: #212167;
+    color: #757575;
+}
+
+#new-game > span {
+    color: #fff;
+    font-size: 24px;
+}
+
+#shaded-area {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.5);
+    z-index: 5;
+}
+
+#game-score-container {
+    font-size: 55px;
+    color: #fff;
+}
+
+#game-score-container > #game-score {
+    font-size: 66px; /* Numbers are smaller than letters for this font, so the size of them is set larger in order to make them match */
+}
+
+#play-area {
+    height: 210px;
+    width: 90%;
+    box-shadow: inset 0 0 9px;
+    background: #6c7b6fab;
+    border-radius: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#cards-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.arrow-container {
+    font-size: 50px;
+    color: #fff;
+    width: 5%;
+    position: absolute;
+    height: 210px;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.arrow-container:hover{
+    display: block;
+    background: rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+#right-arrow-container {
+    right: 0;
+}
+
+.arrow-container > .arrow {
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.arrow-container:hover > .arrow {
+    visibility: visible;
+    opacity: 1;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+#left-arrow-container, #right-arrow-container {
+    display: none; /* set to display: none to begin with, as you can't scroll left or right at the start of the game. */
+}
+
+#hi-lo-btn-container {
+    width: 20%;
+}
+
+#hi-lo-btn-container, #game-score-container, #play-area, .arrow-container > .arrow {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#hi-lo-btn-container.game-started, #game-score-container.game-started, #play-area.game-started {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1.5s cubic-bezier(0.4, 0, 1, 1);
+}
+
+#hi-lo-btn-container > btn {
+    padding: 5% 15%;
+    position: absolute;
+    bottom: 0;
+    font-size: 25px;
+    box-shadow: 0 0 12px;
+}
+
+#hi-lo-btn-container.game-started > btn, #game-score-container, #new-game, .card, .arrow {
+    user-select: none;
+}
+
+#low {
+    left: 0;
+    background: #26bdff;
+}
+
+#low:hover {
+    background: #2627ff;
+}
+
+#high {
+    right: 0;
+    background: #ff4c28;
+}
+
+#high:hover {
+    background: #ff2828;
+}
+
+#new-game.clicked, #shaded-area.inactive {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 1s linear;
+}
+
+#main-game-text-container {
+    z-index: 10;
+}
+
+.game-message {
+    font-size: 46px;
+    text-shadow: 1px 1px 2px black;
+}
+
+btn, .game-message, #game-score-container {
+    text-transform: uppercase;
+}
+
+#game-message-lose {
+    color: red;
+}
+
+#game-message-win {
+    color: green;
+}
+
+.center-yx {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#new-game > span {
+    font-size: 25px;
+}
