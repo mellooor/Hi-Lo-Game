@@ -237,12 +237,6 @@ function drawCard() {
 
     // A timeout of 50ms is set before the scrollToLatestCard function is called so that the DOM can re-draw before the code is executed.
     setTimeout(scrollToLatestCard, 50);
-
-    // Check to see if the player has won (winning condition is no cards are left in the deck).
-    if (drawnCards.length === 52) {
-        var playerHasWon = true;
-        gameOver(playerHasWon);
-    }
 }
 
 /*
@@ -277,8 +271,10 @@ document.getElementById('high').addEventListener('click', function() {
         drawCard();
 
         if (playerHasLost(choice)) {
-            var playerHasWon = false;
-            gameOver(playerHasWon);
+            gameOver(!playerHasLost(choice));
+        } else if (playerHasWon()) {
+            updateScore();
+            gameOver(playerHasWon());
         } else {
             updateScore();
         }
@@ -292,13 +288,17 @@ document.getElementById('low').addEventListener('click', function() {
     if (gameIsActive) {
         choice = 'low';
         drawCard();
+        console.log(drawnCards);
+        console.log(playerHasWon());
 
         if (playerHasLost(choice)) {
-            var playerHasWon = false;
-            gameOver(playerHasWon);
+            gameOver(!playerHasLost(choice));
+        } else if (playerHasWon()) {
+            updateScore();;
+            gameOver(playerHasWon());
         } else {
             updateScore();
-        }
+        };
     }
 });
 
@@ -319,8 +319,26 @@ function playerHasLost(choice) {
     } else {
         playerHasLost =  false;
     }
-
+    
     return playerHasLost;
+}
+
+/*
+Check to see if the player has won (winning condition is no cards are left in the deck).
+
+@param none.
+@return Boolean playerHasWon - Returns true if the player has won the game.
+*/
+function playerHasWon() {
+    var playerHasWon;
+
+    if (drawnCards.length === 52) {
+        playerHasWon = true;
+        return playerHasWon;
+    } else {
+        playerHasWon = false;
+        return playerHasWon;
+    }
 }
 
 /*
