@@ -21,7 +21,7 @@ html, body {
 }
 
 #game-data-container {
-    flex: 1;
+    flex: 1.5;
 }
 
 #game-play-container {
@@ -193,6 +193,7 @@ btn {
 
 #main-game-text-container {
     z-index: 10;
+    line-height: 16vmin;
 }
 
 .game-message {
@@ -230,18 +231,6 @@ btn, .game-message, #game-score-container {
     font-size: 1.6rem;
 }
 
-/*@media (min-width: 480px) {*/
-    /** {*/
-        /*font-size: 30px;*/
-    /*}*/
-/*}*/
-
-
-/*@media (min-width: 768px) {*/
-    /*#hi-lo-btn-container > btn {*/
-        /*padding: 5% 10%;*/
-    /*}*/
-/*}*/
 
 @media (min-aspect-ratio: 3/4) {
     * {
@@ -256,5 +245,17 @@ btn, .game-message, #game-score-container {
 
     #hi-lo-btn-container > btn {
         padding: 4% 10%;
+    }
+}
+
+@media (min-aspect-ratio: 3/5) and (min-height: 1199px) {
+    #main-game-text-container {
+        line-height: 12vmin;
+    }
+}
+
+@media (min-aspect-ratio: 1/1) and (min-height: 768px) {
+    #main-game-text-container {
+        line-height: 7vmin;
     }
 }
