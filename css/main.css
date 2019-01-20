@@ -1,5 +1,6 @@
 * {
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2vmax;
 }
 
 html, body {
@@ -15,13 +16,20 @@ html, body {
     flex-direction: column;
 }
 
-#game-data-container, #game-control-container {
-    flex: 1;
+#game-data-container, #game-control-container, #game-play-container {
     position: relative;
 }
 
+#game-data-container {
+    flex: 1;
+}
+
 #game-play-container {
-    flex: 3;
+    flex: 1;
+}
+
+#game-control-container {
+    flex: 1;
 }
 
 btn {
@@ -29,6 +37,7 @@ btn {
     border-radius: 2px;
     box-shadow: 0 0 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 #new-game {
@@ -44,7 +53,7 @@ btn {
 
 #new-game > span {
     color: #fff;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 #shaded-area {
@@ -56,22 +65,28 @@ btn {
 }
 
 #game-score-container {
-    font-size: 55px;
+    font-size: 4.3rem;
     color: #fff;
+    text-align: center;
 }
 
 #game-score-container > #game-score {
-    font-size: 66px; /* Numbers are smaller than letters for this font, so the size of them is set larger in order to make them match */
+    font-size: 1.2em; /* Numbers are smaller than letters for this font, so the size of them is set larger in order to make them match */
 }
 
 #play-area {
-    height: 210px;
+    max-height: 350px;
+    height: 100%;
     width: 90%;
     box-shadow: inset 0 0 9px;
     background: #6c7b6fab;
     border-radius: 3px;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.card {
+    height: 100%;
 }
 
 #cards-container {
@@ -81,13 +96,16 @@ btn {
 }
 
 .arrow-container {
-    font-size: 50px;
     color: #fff;
     width: 5%;
     position: absolute;
     height: 210px;
     transform: translateY(-50%);
     top: 50%;
+}
+
+.arrow {
+    font-size: 3.1rem;
 }
 
 .arrow-container:hover{
@@ -118,7 +136,8 @@ btn {
 }
 
 #hi-lo-btn-container {
-    width: 20%;
+    width: 50vw;
+    display: flex;
 }
 
 #hi-lo-btn-container, #game-score-container, #play-area, .arrow-container > .arrow {
@@ -133,11 +152,14 @@ btn {
 }
 
 #hi-lo-btn-container > btn {
-    padding: 5% 15%;
-    position: absolute;
-    bottom: 0;
-    font-size: 25px;
+    padding: 7% 10%;
+    /*position: absolute;*/
+    /*transform: translateY(-50%);*/
     box-shadow: 0 0 12px;
+}
+
+#hi-lo-btn-container > btn > span {
+    font-size: 1.4rem;
 }
 
 #hi-lo-btn-container.game-started > btn, #game-score-container, #new-game, .card, .arrow {
@@ -145,7 +167,8 @@ btn {
 }
 
 #low {
-    left: 0;
+    /*left: 0;*/
+    margin-right: auto;
     background: #26bdff;
 }
 
@@ -154,7 +177,7 @@ btn {
 }
 
 #high {
-    right: 0;
+    /*right: 0;*/
     background: #ff4c28;
 }
 
@@ -173,8 +196,15 @@ btn {
 }
 
 .game-message {
-    font-size: 46px;
     text-shadow: 1px 1px 2px black;
+}
+
+#game-message-lose {
+    font-size: 3.4rem;
+}
+
+#game-message-win {
+    font-size: 2.6rem;
 }
 
 btn, .game-message, #game-score-container {
@@ -197,5 +227,34 @@ btn, .game-message, #game-score-container {
 }
 
 #new-game > span {
-    font-size: 25px;
+    font-size: 1.6rem;
+}
+
+/*@media (min-width: 480px) {*/
+    /** {*/
+        /*font-size: 30px;*/
+    /*}*/
+/*}*/
+
+
+/*@media (min-width: 768px) {*/
+    /*#hi-lo-btn-container > btn {*/
+        /*padding: 5% 10%;*/
+    /*}*/
+/*}*/
+
+@media (min-aspect-ratio: 3/4) {
+    * {
+        font-size: 30px;
+    }
+}
+
+@media (min-aspect-ratio: 1/1) {
+    * {
+        font-size: 16px;
+    }
+
+    #hi-lo-btn-container > btn {
+        padding: 4% 10%;
+    }
 }

@@ -319,7 +319,7 @@ function playerHasLost(choice) {
     } else {
         playerHasLost =  false;
     }
-    
+
     return playerHasLost;
 }
 
@@ -396,4 +396,21 @@ function setGameFinishedMessage(playerHasWon) {
     var messageText = (playerHasWon) ? 'Perfect Score' : 'Game Over';
     document.querySelector('.game-message').id = id;
     document.querySelector('.game-message').textContent = messageText;
+}
+
+/*
+Required in order to set viewport height as 100vh on mobile browsers that don't include the address bar
+in the height calculation (making the page look longer than 100vh).
+ */
+function adjustHeightForMobile() {
+    document.getElementById('game-area').style.height = window.innerHeight + "px";
+    document.getElementById('shaded-area').style.height = window.innerHeight + "px";
+}
+
+window.onresize = function() {
+    adjustHeightForMobile();
+}
+
+window.onload = function() {
+    adjustHeightForMobile();
 }
