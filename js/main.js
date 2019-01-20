@@ -236,7 +236,7 @@ function drawCard() {
     document.getElementById('cards-container').innerHTML += '<img class="card" src="./img/' + cardValue + '_' + suit + '.png"/>';
 
     // A timeout of 50ms is set before the scrollToLatestCard function is called so that the DOM can re-draw before the code is executed.
-    setTimeout(scrollToLatestCard, 50);
+    setTimeout(scrollToLatestCard, 75);
 }
 
 /*
